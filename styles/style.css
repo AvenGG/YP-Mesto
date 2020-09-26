@@ -163,7 +163,7 @@ body{
     padding: 0;
     overflow: hidden;
     outline: none;
-    background: url(/images/imageNotFound.jpg);
+    background: url(../images/imageNotFound.jpg);
     background-size: contain;
    
 }
@@ -203,7 +203,7 @@ overflow: hidden;
 .element__like{
     min-width: 21px;
     min-height: 19px;
-    background-image: url(/images/like.svg);
+    background-image: url(../images/like.svg);
     transition: ease .3s;
 
 }
@@ -211,7 +211,7 @@ overflow: hidden;
 .element__like-clicked{
     min-width: 21px;
     min-height: 19px;
-    background-image: url(/images/likeFill.svg);
+    background-image: url(../images/likeFill.svg);
 
 }
 
