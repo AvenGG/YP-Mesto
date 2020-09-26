@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="fonts/Inter Web/inter.css">
+    <link rel="icon" href="/images/favicon.ico">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <div class="header__container">
+                <img src="/images/logo.svg" alt="" class="header__logo">
+                <p class="header__clock">00:00:00</p>
+            </div>
+            <div class="header__line"></div>
+        </header>
+        
+        <section class="profile">
+            <div class="profile__main">
+                <button class="profile__image-container">
+                    <img src="/images/me.jpg" alt="" class="profile__avatar">
+                </button>
+                <div class="profile__info">
+                    <div class="info__name-div">
+                        <h2 class="info__name">Криско Иван</h2>
+                        <button class="info__edit-button button-hover">
+                            <svg  width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 1.32827L2.60377 8.7666L1.28302 7.41936L8.66038 0L10 1.32827ZM0 10L1.96226 9.41177L0.584906 8.08349L0 10Z" fill="white"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="info__description">Web-Разработчик</p>
+                </div>
+            </div>
+            <button class="profile__add-button button-hover">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 9.77778H12.2222V0H9.77778V9.77778H0V12.2222H9.77778V22H12.2222V12.2222H22V9.77778Z" fill="white"/>
+                </svg>
+            </button>
+        </section>
+
+        <section class="elements">
+            <!--Добавление через JS-->
+        </section>
+
+        <footer class="footer">
+            <p class="footer__subscription">© 2020 Mesto Russia</p>
+        </footer>
+
+        <section class="popup">
+            <div class="popup__menu">
+                <button class="popup__close button-hover">
+                    <img src="/images/CloseIcon.svg" alt="" class="popup__close-image">
+                </button>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <form class="popup__form">
+                        <input name ="name" type="text" class="popup__name">
+                        <input name="about" type="text" class="popup__about">
+                        <button type="submit" class="popup__submit" >Сохранить</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="popup-add">
+            <div class="popup-add__menu">
+                <button class="popup-add__close button-hover">
+                    <img src="/images/CloseIcon.svg" alt="" class="popup-add__close-image">
+                </button>
+                <h2 class="popup-add__title">Новое место</h2>
+                <form class="popup-add__form">
+                        <input name ="place-name" type="text" class="popup-add__place-name">
+                        <input name="place-link" type="text" class="popup-add__place-link">
+                        <button type="submit" class="popup-add__submit" >Сохранить</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="popup-image">
+            <div class="popup-image__container">
+                <img class="popup-image__image">
+                <p class="popup-image__subscription"></p>
+                <button class="popup-image__close">
+                    <img src="/images/CloseIcon.svg" alt="" class="popup-image__close-image">
+                </button>
+            </div>
+        </section>
+
+    </div>
+    
+    <template id="elements__element-template">
+        <div class="elements__element">
+             <button class="element__image-button">
+                <img alt="" class="element__image">
+            </button>
+            <div class="element__title-container">
+                <h3 class="element__title"></h3>
+                <button class="element__like-button">
+                    <div class="element__like"></div>
+                </button>
+            </div>
+            <button class="element__delete-button">
+                <svg class="element__delete-icon" width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.45763 18.1422C2.51857 18.8126 3.06711 19.3002 3.73754 19.3002H14.2612C14.9317 19.3002 15.4802 18.7923 15.5411 18.1422L16.7195 5.79004H1.2793L2.45763 18.1422Z" fill="white"/>
+                    <path d="M16.7201 1.93002H11.5801V1.27991C11.5801 0.568849 11.0113 0 10.3002 0H7.72009C7.00903 0 6.44018 0.568849 6.44018 1.27991V1.93002H1.27991C0.568849 1.93002 0 2.49887 0 3.20993C0 3.92099 0.568849 4.48984 1.27991 4.48984H16.7201C17.4312 4.48984 18 3.92099 18 3.20993C18 2.49887 17.4312 1.93002 16.7201 1.93002Z" fill="white"/>
+                </svg>
+            </button>    
+        </div>
+    </template>
+    <audio id="mySoundDelete">
+            <source src="/sounds/delete.mp3"></source>
+    </audio>
+    <audio id="mySoundLike">
+        <source src="/sounds/like.mp3"></source>
+    </audio>
+
+    <script src="/js/javascript.js"></script>
+</body>
+</html>
