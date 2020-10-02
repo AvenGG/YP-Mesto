@@ -207,12 +207,23 @@ overflow: hidden;
     transition: ease .3s;
 
 }
-
+@keyframes heartbeat{
+    from{
+        transform: scale(1.0);
+    }
+    to{
+        transform: scale(1.3);
+    }
+}
 .element__like-clicked{
     min-width: 21px;
     min-height: 19px;
     background-image: url(../images/likeFill.svg);
-
+    animation-name: heartbeat;
+    animation-duration: .6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
 }
 
 .element__like-button{
