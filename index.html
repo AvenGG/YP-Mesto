@@ -8,88 +8,87 @@
     <link rel="stylesheet" href="fonts/Inter Web/inter.css">
     <link rel="icon" href="images/favicon.ico">
 </head>
-<body>
-    <div class="page">
-        <header class="header">
-            <div class="header__container">
-                <img src="images/logo.svg" alt="" class="header__logo">
-                <p class="header__clock">00:00:00</p>
-            </div>
-            <div class="header__line"></div>
-        </header>
-        
-        <section class="profile">
-            <div class="profile__main">
-                <button class="profile__image-container">
-                    <img src="images/me.jpg" alt="" class="profile__avatar">
-                </button>
-                <div class="profile__info">
-                    <div class="info__name-div">
-                        <h2 class="info__name">Криско Иван</h2>
-                        <button class="info__edit-button button-hover">
-                            <svg  width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10 1.32827L2.60377 8.7666L1.28302 7.41936L8.66038 0L10 1.32827ZM0 10L1.96226 9.41177L0.584906 8.08349L0 10Z" fill="white"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <p class="info__description">Web-Разработчик</p>
-                </div>
-            </div>
-            <button class="profile__add-button button-hover">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 9.77778H12.2222V0H9.77778V9.77778H0V12.2222H9.77778V22H12.2222V12.2222H22V9.77778Z" fill="white"/>
-                </svg>
-            </button>
-        </section>
-
-        <section class="elements">
-            <!--Добавление через JS-->
-        </section>
-
-        <footer class="footer">
-            <p class="footer__subscription">© 2020 Mesto Russia</p>
-        </footer>
-
-        <section class="popup">
-            <div class="popup__menu">
-                <button class="popup__close button-hover">
-                    <img src="images/CloseIcon.svg" alt="" class="popup__close-image">
-                </button>
-                <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form">
-                        <input name ="name" type="text" class="popup__name">
-                        <input name="about" type="text" class="popup__about">
-                        <button type="submit" class="popup__submit" >Сохранить</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="popup-add">
-            <div class="popup-add__menu">
-                <button class="popup-add__close button-hover">
-                    <img src="images/CloseIcon.svg" alt="" class="popup-add__close-image">
-                </button>
-                <h2 class="popup-add__title">Новое место</h2>
-                <form class="popup-add__form">
-                        <input name ="place-name" type="text" class="popup-add__place-name">
-                        <input name="place-link" type="text" class="popup-add__place-link">
-                        <button type="submit" class="popup-add__submit" >Сохранить</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="popup-image">
-            <div class="popup-image__container">
-                <img class="popup-image__image">
-                <p class="popup-image__subscription"></p>
-                <button class="popup-image__close">
-                    <img src="images/CloseIcon.svg" alt="" class="popup-image__close-image">
-                </button>
-            </div>
-        </section>
-
-    </div>
+<body class="page">
+    <header class="header">
+        <div class="header__container">
+            <img src="images/logo.svg" alt="" class="header__logo">
+            <p class="header__clock">00:00:00</p>
+        </div>
+        <div class="header__line"></div>
+    </header>
     
+    <section class="profile">
+        <div class="profile__main">
+            <button class="profile__image-container">
+                <img src="images/me.jpg" alt="" class="profile__avatar">
+            </button>
+            <div class="profile__info">
+                <div class="info__name-div">
+                    <h2 class="info__name">Криско Иван</h2>
+                    <button class="info__edit-button button-hover">
+                        <svg  width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 1.32827L2.60377 8.7666L1.28302 7.41936L8.66038 0L10 1.32827ZM0 10L1.96226 9.41177L0.584906 8.08349L0 10Z" fill="white"/>
+                        </svg>
+                    </button>
+                </div>
+                <p class="info__description">Web-Разработчик</p>
+            </div>
+        </div>
+        <button class="profile__add-button button-hover">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 9.77778H12.2222V0H9.77778V9.77778H0V12.2222H9.77778V22H12.2222V12.2222H22V9.77778Z" fill="white"/>
+            </svg>
+        </button>
+    </section>
+    <section class="elements">
+        <!--Добавление через JS-->
+    </section>
+
+    <footer class="footer">
+        <p class="footer__subscription">© 2020 Mesto Russia</p>
+    </footer>
+
+    <section class="popup popup_edit">
+        <div class="popup__menu">
+            <button class="popup__close button-hover">
+                <img src="images/CloseIcon.svg" alt="" class="popup__close-image">
+            </button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="popup__form">
+                    <input name ="name" type="text" class="popup__input popup_name">
+                    <input name="about" type="text" class="popup__input popup_about">
+                    <button type="submit" class="popup__submit" >Сохранить</button>
+            </form>
+        </div>
+        <div class="popup__overlay"></div>
+    </section>
+
+    <section class="popup popup_add">
+        <div class="popup__menu">
+            <button class="popup__close button-hover">
+                <img src="images/CloseIcon.svg" alt="" class="popup__close-image">
+            </button>
+            <h2 class="popup__title">Новое место</h2>
+            <form class="popup__form">
+                    <input name ="place-name" type="text" class="popup__input popup_add_place-name">
+                    <input name="place-link" type="text" class="popup__input popup_add_place-link">
+                    <button type="submit" class="popup__submit" >Сохранить</button>
+            </form>
+        </div>
+        <div class="popup__overlay"></div>
+    </section>
+
+    <section class="popup popup_image">
+        <div class="popup-image__container">
+            <img class="popup-image__image">
+            <p class="popup-image__subscription"></p>
+            <button class="popup__close button-hover">
+                <img src="images/CloseIcon.svg" alt="" class="popup__close-image">
+            </button>
+        </div>
+        <div class="popup__overlay"></div>
+    </section>
+
     <template id="elements__element-template">
         <div class="elements__element">
              <button class="element__image-button">
