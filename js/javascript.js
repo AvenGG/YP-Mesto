@@ -33,13 +33,13 @@ const elementTemplate = document.querySelector('#elements__element-template').co
 const initialCards = [
     { 
         cardTitle:"Пидан",
-        cardLink: "http://s4.fotokto.ru/photo/full/345/3458246.jpg" },
+        cardLink: "images/pidan.webp" },
     { 
         cardTitle:"Зарубино",
-        cardLink: "https://www.primorsky.ru/upload/iblock/85a/85a5b468ad515fac00bb14470cea5ec9.jpg" },
+        cardLink: "images/zarubino.webp" },
     { 
         cardTitle:"Комета",
-        cardLink: "https://ski2.ru/statics/upload/curort/576/5870f57389e8d.jpg"},
+        cardLink: "images/cometa.webp"},
     { 
         cardTitle:"Триозёрье",
         cardLink: "images/lakes.webp" },
