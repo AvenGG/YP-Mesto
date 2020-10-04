@@ -21,7 +21,9 @@
 }
 
 .header__clock{
-    font-family: Inter;
+    font-family: "Inter var";
+    font-style: normal;
+    font-weight: normal;
     font-size: 30px;
     color:#fff;
 }
@@ -93,7 +95,7 @@
 
 .info__name{
     margin-right: 10px;
-    font-family: Inter;
+    font-family: "Inter var";
     font-style: normal;
     font-weight: 500;
     font-size: 42px;
@@ -104,7 +106,7 @@
 }
 
 .info__description{
-    font-family: Inter;
+    font-family: "Inter var";
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -185,7 +187,7 @@
 }
 
 .element__title{
-font-family: Inter;
+font-family: "Inter var";
 font-style: normal;
 font-weight: 900;
 font-size: 24px;
@@ -284,7 +286,7 @@ overflow: hidden;
 }
 
 .footer__subscription{
-    font-family: Inter;
+    font-family: "Inter var";
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -323,7 +325,7 @@ overflow: hidden;
 
 .popup__title{
     margin: 34px 0 54px;
-    font-family: Inter;
+    font-family: "Inter var";
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
@@ -345,7 +347,7 @@ overflow: hidden;
     border:none;
     border-bottom: solid 1px rgba(0, 0, 0, 0.2);
     padding:10px;
-    font-family: Inter;
+    font-family: "Inter var";
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -359,7 +361,7 @@ overflow: hidden;
     height: 50px;
     margin:48px 0 36px;
     outline: none;
-    font-family: Inter;
+    font-family: "Inter var";
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -429,7 +431,7 @@ overflow: hidden;
 
 .popup-image__subscription{
     margin-top: 10px;
-    font-family: Inter;
+    font-family: "Inter var";
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
