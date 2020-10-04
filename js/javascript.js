@@ -42,13 +42,13 @@ const initialCards = [
         cardLink: "https://ski2.ru/statics/upload/curort/576/5870f57389e8d.jpg"},
     { 
         cardTitle:"Триозёрье",
-        cardLink: "images/lakes.jpg" },
+        cardLink: "images/lakes.webp" },
     { 
         cardTitle:"Ливадия",
-        cardLink: "images/livadia.jpg" },
+        cardLink: "images/livadia.webp" },
     { 
         cardTitle:"Вторая речка",
-        cardLink: "images/home.jpg"
+        cardLink: "images/home.webp"
     }
 ];
 
