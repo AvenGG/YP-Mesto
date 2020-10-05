@@ -33,29 +33,57 @@ const elementTemplate = document.querySelector('#elements__element-template').co
 const initialCards = [
     { 
         cardTitle:"Пидан",
-        cardLink: "images/pidan.webp" },
+        cardLink: "images/pidan.webp",
+        cardLinkFullSize: "images/full/pidan.webp" },
     { 
         cardTitle:"Зарубино",
-        cardLink: "images/zarubino.webp" },
+        cardLink: "images/zarubino.webp",
+        cardLinkFullSize: "images/full/zarubino.webp" },
     { 
         cardTitle:"Комета",
-        cardLink: "images/cometa.webp"},
+        cardLink: "images/cometa.webp",
+        cardLinkFullSize: "images/full/cometa.webp"},
     { 
         cardTitle:"Триозёрье",
-        cardLink: "images/lakes.webp" },
+        cardLink: "images/lakes.webp",
+        cardLinkFullSize: "images/full/lakes.webp" },
     { 
         cardTitle:"Ливадия",
-        cardLink: "images/livadia.webp" },
+        cardLink: "images/livadia.webp",
+        cardLinkFullSize: "images/full/livadia.webp" },
     { 
         cardTitle:"Вторая речка",
-        cardLink: "images/home.webp"
+        cardLink: "images/home.webp",
+        cardLinkFullSize: "images/full/home.webp"
     }
 ];
 
 // --- Image
-const popupImage = document.querySelector('.popup_image');
-const popupImageCloseButton = popupImage.querySelector('.popup__close');
-const popupImageOverlay = popupImage.querySelector('.popup__overlay');
+
+class Popup_image {
+    constructor() {
+      this.main = document.querySelector('.popup_image');
+      this.overlay = this.main.querySelector('.popup__overlay');
+      this.image = this.main.querySelector('.popup-image__image');
+      this.subscription = this.main.querySelector('.popup-image__subscription');
+      this.closeButton = this.main.querySelector('.popup__close');
+      this.eventListeners();
+    }
+  
+    eventListeners() {
+        this.overlay.addEventListener('click', () => this.toggle());
+        this.closeButton.addEventListener('click', () => this.toggle());
+    }
+    open(src,subscription){
+        this.image.src = src;
+        this.subscription.textContent = subscription;
+        this.toggle();
+    }
+    toggle(){
+        popupToggle(this.main);
+    }
+}
+const popupImage = new Popup_image();
 
 const profileAvatar = document.querySelector('.profile__avatar');
 const profileAvatarButton = document.querySelector('.profile__image-container');
@@ -72,6 +100,7 @@ function createCard(content, template, block){
     const newElement = template.cloneNode(true);
     newElement.querySelector('.element__title').textContent = content.cardTitle;
     newElement.querySelector('.element__image').src = content.cardLink;
+    newElement.querySelector('.element__image').dataset.src = content.cardLinkFullSize;
     newElement.like = newElement.querySelector('.element__like');
     newElement.like.addEventListener('click', function(){
         newElement.like.classList.toggle('element__like-clicked');
@@ -82,19 +111,10 @@ function createCard(content, template, block){
     newElement.deleteElement = newElement.querySelector('.element__delete-button');
     newElement.deleteElement.addEventListener('click', function(){
         newElement.deleteElement.parentElement.remove();
-    });
-    newElement.deleteElement.addEventListener('click', function(){
         audioDelete.play();
-    });
-    newElement.imageButton = newElement.querySelector('.element__image-button');
-    newElement.imageButton.addEventListener('click', function(){
-        popupImage.querySelector('.popup-image__image').src = content.cardLink;
-        popupImage.querySelector('.popup-image__subscription').textContent = content.cardTitle;
-        popupToggle(popupImage);
     });
     block.prepend(newElement);
 }
-
 
 //Добавление карточек при загрузке
 initialCards.forEach(item => {
@@ -150,17 +170,13 @@ addButton.addEventListener('click', () => {
 popupAddCloseButton.addEventListener('click', () => popupToggle(popupAdd));
 saveAddForm.addEventListener('submit', popupAddSave);
 
-popupImageCloseButton.addEventListener('click', () => popupToggle(popupImage));
 
 profileAvatarButton.addEventListener('click', () =>{
-    popupImage.querySelector('.popup-image__image').src = profileAvatar.src;
-    popupImage.querySelector('.popup-image__subscription').textContent =  infoName.textContent + ": " +infoAbout.textContent;
-    popupToggle(popupImage);
+    popupImage.open(profileAvatar.src, infoName.textContent + ": " +infoAbout.textContent);
 });
 
 popupEditOverlay.addEventListener('click', () => popupToggle(popupEdit));
 popupAddOverlay.addEventListener('click', () => popupToggle(popupAdd));
-popupImageOverlay.addEventListener('click', () => popupToggle(popupImage));
 
 function setTime(){
     time = new Date();
@@ -186,3 +202,26 @@ function setTime(){
 
 setTime();
 setInterval( setTime, 1000 );
+(() => {
+    'use strict';
+    // Page is loaded
+    const objects = document.querySelectorAll('.asyncImage');
+    Array.from(objects).map((item) => {
+      // Start loading image
+      const img = new Image();
+      img.src = item.dataset.src;
+      // Once image is loaded replace the src of the HTML element
+      img.onload = () => {
+        item.classList.remove('asyncImage');
+        return item.nodeName === 'IMG' ? 
+          item.src = item.dataset.src :        
+          item.style.backgroundImage = `url(${item.dataset.src})`;
+      };
+    });
+    })();
+
+  document.querySelector('.elements').addEventListener('click', (evt)=>{
+      if(evt.target.classList.contains('element__image')){
+        popupImage.open(evt.target.src, evt.target.parentElement.parentElement.querySelector('.element__title').textContent);
+}   
+})
