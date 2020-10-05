@@ -230,7 +230,6 @@ overflow: hidden;
     height: 19px;
     border:none;
     background-color: transparent;
-    transition: ease .2s;
 }
 
 .element__like-button:focus{
@@ -449,6 +448,10 @@ overflow: hidden;
     cursor: pointer;
 }
 
+.asyncImage{
+    transition: ease 3s;
+
+}
 /* ----------- Media ---------*/
 @media screen and (min-width: 1024px) and (max-width: 1279px)
 {
