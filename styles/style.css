@@ -314,14 +314,8 @@ overflow: hidden;
     transform: translateY(-14px);
     padding-bottom: 14px;
     color: #a3a3a3;
-
 }
 
-.footer__letter-up-three{
-    transform: translateY(-10px);
-    padding-bottom: 10px;
-
-}
 .footer__letter_fix{
     opacity: 0;
     padding-bottom: 30px;
@@ -458,7 +452,7 @@ overflow: hidden;
     display: flex;
     flex-direction: column;
     z-index: 20;
-    border-radius: 50%;
+    border-radius: 200%;
     overflow: hidden;
     transition: .3s ease;
 }
