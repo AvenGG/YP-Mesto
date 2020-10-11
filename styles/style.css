@@ -85,6 +85,7 @@
     height: 24px;
     background-color: #000;
     border: solid 1px #fff;
+    transition: .1s ease;
 }
 
 .info__name-div{
@@ -123,6 +124,7 @@
     border: 2px solid #FFFFFF;
     border-radius: 2px;
     align-self: center;
+    transition: .1s ease;
 }
 
 
@@ -361,7 +363,6 @@ overflow: hidden;
     font-weight: 900;
     font-size: 24px;
     line-height: 29px;
-    position: relative;
     text-align: center;
 }
 
@@ -406,6 +407,7 @@ overflow: hidden;
     line-height: 22px;
     text-align: center;
     border: none;
+    transition: .1s ease;
 }
 
 .popup__close{
@@ -422,6 +424,7 @@ overflow: hidden;
     border: none;
     overflow: hidden;
     background-color: transparent;
+    transition: .1s ease;
 }
 
 .popup__submit:hover{
