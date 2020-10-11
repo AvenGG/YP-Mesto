@@ -308,11 +308,13 @@ overflow: hidden;
 .footer__letter-up-one{
     transform: translateY(-30px);
     padding-bottom: 30px;
-
+    color: #e7e7e7;
 }
 .footer__letter-up-two{
     transform: translateY(-14px);
     padding-bottom: 14px;
+    color: #a3a3a3;
+
 }
 
 .footer__letter-up-three{
@@ -348,6 +350,7 @@ overflow: hidden;
     position: relative;
     background-color: #fff;
     width: 30%;
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
