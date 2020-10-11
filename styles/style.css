@@ -361,6 +361,7 @@ overflow: hidden;
     font-weight: 900;
     font-size: 24px;
     line-height: 29px;
+    position: relative;
     text-align: center;
 }
 
@@ -377,12 +378,18 @@ overflow: hidden;
     width: 100%;
     border:none;
     border-bottom: solid 1px rgba(0, 0, 0, 0.2);
-    padding:10px;
+    padding: 10px;
     font-family: "Inter var";
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 17px;
+    transition: .3s ease;
+}
+.popup__input:focus{
+    border-bottom: solid 1px rgba(0, 0, 0, 0.6);
+    width: 105%;
+    border-radius: 6px;
 }
 
 .popup__submit{
@@ -390,7 +397,7 @@ overflow: hidden;
     background-color: #000;
     width: 100%;
     height: 50px;
-    margin:48px 0 36px;
+    margin: 48px 0 36px;
     outline: none;
     font-family: "Inter var";
     font-style: normal;
@@ -452,7 +459,6 @@ overflow: hidden;
     display: flex;
     flex-direction: column;
     z-index: 20;
-    border-radius: 200%;
     overflow: hidden;
     transition: .3s ease;
 }
@@ -473,7 +479,6 @@ overflow: hidden;
     color: #FFFFFF;
 }
 .popup_active .popup-image__container{
-    border-radius: 0;
     overflow: visible;
     max-width: 80%;
 
