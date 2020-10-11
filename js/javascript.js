@@ -3,6 +3,8 @@ const audioDelete = document.querySelector("#mySoundDelete");
 const audioLike = document.querySelector("#mySoundLike");
 const clock = document.querySelector('.header__clock');
 
+const profileAvatar = document.querySelector('.profile__avatar');
+const profileAvatarButton = document.querySelector('.profile__image-container');
 // --- Popup Edit
 const editButton = document.querySelector('.info__edit-button');
 const infoName = document.querySelector('.info__name');
@@ -10,7 +12,6 @@ const infoAbout = document.querySelector('.info__description');
 
 // --- Popup Add
 const addButton = document.querySelector('.profile__add-button');
-const popupAdd = document.querySelector('.popup_add');
 
 const elements = document.querySelector('.elements');
 const elementTemplate = document.querySelector('#elements__element-template').content;
@@ -91,7 +92,6 @@ class Popup_image extends Popup{
         this.toggle();
     }
 }
-const popupImage = new Popup_image('.popup_image');
 
 class Popup_edit extends Popup{
     constructor(popup){
@@ -119,7 +119,6 @@ class Popup_edit extends Popup{
         this.toggle();
     }
 }
-const popupEdit = new Popup_edit('.popup_edit');
 
 class Popup_add extends Popup{
     constructor(popup){
@@ -154,18 +153,8 @@ class Popup_add extends Popup{
         }
     }
 }
-const popupAdd1 = new Popup_add('.popup_add');
 
-addButton.addEventListener('click', () => {
-    popupAdd1.open();
-})
 
-const profileAvatar = document.querySelector('.profile__avatar');
-const profileAvatarButton = document.querySelector('.profile__image-container');
-
-profileAvatarButton.addEventListener('click', () =>{
-    popupImage.open(profileAvatar.src, infoName.textContent + ": " +infoAbout.textContent);
-});
 
 //------------Добавление карточек
 function createCard(content){
@@ -193,10 +182,6 @@ initialCards.forEach(item => {
     createCard(item);
 });
 
-editButton.addEventListener('click', ()=>{
-    popupEdit.open();
-})
-
 function setTime(){
     time = new Date();
     let h = time.getHours().toString();
@@ -221,47 +206,68 @@ function setTime(){
 
 setTime();
 setInterval( setTime, 1000 );
-(() => {
-    'use strict';
-    // Page is loaded
-    const objects = document.querySelectorAll('.asyncImage');
-    Array.from(objects).map((item) => {
-      // Start loading image
-      const img = new Image();
-      img.src = item.dataset.src;
-      // Once image is loaded replace the src of the HTML element
-      img.onload = () => {
-        item.classList.remove('asyncImage');
-        return item.nodeName === 'IMG' ? 
-            item.src = item.dataset.src :        
-                item.style.backgroundImage = `url(${item.dataset.src})`;
-        };
+
+function lettersAnimation(){
+    const letters = document.querySelectorAll('.footer__letter');
+    function letterUp(){
+        this.classList.add('footer__letter-up-one');
+        if(this.previousElementSibling != null)
+            this.previousElementSibling.classList.add('footer__letter-up-two');
+        if(this.nextElementSibling!= null)
+            this.nextElementSibling.classList.add('footer__letter-up-two');
+    }
+    function letterDown(){
+        setTimeout(()=>this.classList.remove('footer__letter-up-one'),100);
+        if(this.previousElementSibling != null)
+            setTimeout(()=>this.previousElementSibling.classList.remove('footer__letter-up-two'),100);
+        if(this.nextElementSibling!= null)
+            setTimeout(()=>this.nextElementSibling.classList.remove('footer__letter-up-two'),100); 
+    }
+    Array.from(letters).forEach((item)=>{
+        item.addEventListener('mouseover', letterUp);
+        item.addEventListener('mouseout', letterDown);
     });
-})();
+};
 
-document.querySelector('.elements').addEventListener('click', (evt)=>{
-    if(evt.target.classList.contains('element__image')){
-        popupImage.open(evt.target.src, evt.target.parentElement.parentElement.querySelector('.element__title').textContent);
-    }   
-});
+//Creating event listeners after page load
+window.onload = function(){
+    const popupImage = new Popup_image('.popup_image');
+    const popupEdit = new Popup_edit('.popup_edit');
+    const popupAdd = new Popup_add('.popup_add');
 
-const letters = document.querySelectorAll('.footer__letter');
-function letterUp(){
-    this.classList.add('footer__letter-up-one');
-    if(this.previousElementSibling != null)
-        this.previousElementSibling.classList.add('footer__letter-up-two');
-    if(this.nextElementSibling!= null)
-        this.nextElementSibling.classList.add('footer__letter-up-two');
-}
-function letterDown(){
-    setTimeout(()=>this.classList.remove('footer__letter-up-one'),100);
-    if(this.previousElementSibling != null)
-        setTimeout(()=>this.previousElementSibling.classList.remove('footer__letter-up-two'),100);
-    if(this.nextElementSibling!= null)
-        setTimeout(()=>this.nextElementSibling.classList.remove('footer__letter-up-two'),100);
+    addButton.addEventListener('click', () => {
+        popupAdd.open();
+    })
+
+    profileAvatarButton.addEventListener('click', () =>{
+        popupImage.open(profileAvatar.src, infoName.textContent + ": " +infoAbout.textContent);
+    });
     
+    editButton.addEventListener('click', ()=>{
+        popupEdit.open();
+    });
+
+    (() => {
+        'use strict';
+        // Page is loaded
+        const objects = document.querySelectorAll('.asyncImage');
+        Array.from(objects).map((item) => {
+          // Start loading image
+          const img = new Image();
+          img.src = item.dataset.src;
+          // Once image is loaded replace the src of the HTML element
+          img.onload = () => {
+            item.classList.remove('asyncImage');
+            return item.nodeName === 'IMG' ? 
+                item.src = item.dataset.src :        
+                    item.style.backgroundImage = `url(${item.dataset.src})`;
+            };
+        });
+    })();
+    document.querySelector('.elements').addEventListener('click', (evt)=>{
+        if(evt.target.classList.contains('element__image')){
+            popupImage.open(evt.target.src, evt.target.parentElement.parentElement.querySelector('.element__title').textContent);
+        }   
+    });
+    lettersAnimation();
 }
-Array.from(letters).forEach((item)=>{
-    item.addEventListener('mouseover', letterUp);
-    item.addEventListener('mouseout', letterDown);
-});
