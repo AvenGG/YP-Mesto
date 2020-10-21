@@ -137,7 +137,13 @@
     column-gap: 18px;
     row-gap: 20px;
 }
-
+.elements__element-place{
+    width:100%;
+    transition: .2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .elements__element{
     background-color: #fff;
     width: 100%;
@@ -279,6 +285,21 @@ overflow: hidden;
     transform: rotate(-20deg) translateX(-1px);
 }
 
+.element_dragenter .elements__element{
+    opacity: 0.5;
+    width:98%;
+    transition: .07s ease;
+}
+
+.element_dragging{
+    opacity: 0.2;
+    box-shadow: 0 0 10px 0 rgba(0, 255, 234, 0.507),0 0 5px 1px rgba(212, 0, 255, 0.5);
+    
+}
+.element_dragenter_fix-styles .elements__element{
+    width:100%;
+    opacity: 0.2;
+}
 /* ----------- Footer ---------*/
 .footer{
     width: 69%;

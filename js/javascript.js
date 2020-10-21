@@ -171,9 +171,38 @@ function createCard(content){
     });
     newElement.deleteElement = newElement.querySelector('.element__delete-button');
     newElement.deleteElement.addEventListener('click', function(){
-        newElement.deleteElement.parentElement.remove();
+        newElement.deleteElement.parentElement.parentElement.remove();
         audioDelete.play();
     });
+    
+    const elementPlace = newElement.querySelector('.elements__element-place');
+    const element = newElement.querySelector('.elements__element');
+    element.addEventListener('dragstart',(e)=>{
+        element.classList.toggle('element_dragging');
+        element.parentElement.classList.add('element_dragenter_fix-styles');
+    })
+    element.addEventListener('dragend',()=>{
+        element.classList.toggle('element_dragging');
+        element.parentElement.classList.remove('element_dragenter_fix-styles');
+    })
+    elementPlace.addEventListener('dragenter',()=>{
+        elementPlace.classList.toggle('element_dragenter');
+    })
+    elementPlace.addEventListener('dragleave',()=>{
+        elementPlace.classList.toggle('element_dragenter');
+    }) 
+    elementPlace.addEventListener('dragover',(e)=>{
+        e.preventDefault();
+    })
+    elementPlace.addEventListener('drop',(e)=>{
+        e.preventDefault();
+        dragging = document.querySelector('.element_dragging');
+        dragging.parentElement.append(elementPlace.firstElementChild);
+        elementPlace.classList.toggle('element_dragenter');
+        dragging.parentElement.classList.remove('element_dragenter_fix-styles');
+
+        elementPlace.append( dragging)
+    })
     elements.prepend(newElement);
 }
 
@@ -242,7 +271,7 @@ window.onload = function(){
     profileAvatarButton.addEventListener('click', () =>{
         popupImage.open(profileAvatar.src, infoName.textContent + ": " +infoAbout.textContent);
     });
-    
+
     editButton.addEventListener('click', ()=>{
         popupEdit.open();
     });
