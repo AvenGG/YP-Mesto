@@ -139,6 +139,7 @@
 }
 .elements__element-place{
     width:100%;
+    border-radius: 5px;
     transition: .2s ease;
     display: flex;
     align-items: center;
@@ -289,6 +290,7 @@ overflow: hidden;
     opacity: 0.5;
     width:98%;
     transition: .07s ease;
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.507),0 0 5px 1px rgba(212, 0, 255, 0.5);
 }
 
 .element_dragging{
@@ -299,6 +301,7 @@ overflow: hidden;
 .element_dragenter_fix-styles .elements__element{
     width:100%;
     opacity: 0.2;
+    box-shadow: 0 0 10px 0 rgba(0, 255, 234, 0.507),0 0 5px 1px rgba(212, 0, 255, 0.5);
 }
 /* ----------- Footer ---------*/
 .footer{
