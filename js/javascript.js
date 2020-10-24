@@ -299,4 +299,5 @@ window.onload = function(){
         }   
     });
     lettersAnimation();
+    page.classList.add('page_loaded')
 }

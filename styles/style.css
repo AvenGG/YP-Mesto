@@ -5,7 +5,81 @@
 .page{
     background-color:#000;
 }
+.page__overlay{
+    width:100%;
+    height: 100%;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: ease .6s;
+    transition-delay: .5s;
 
+}
+.page__overlay img{
+    position: absolute;
+    width:300px;
+    opacity: 0.8;
+    top: 150px;
+    transition:  ease .3s;
+    transition-delay: .2s;
+}
+
+.page__overlay-preloader{
+    width: 140px;
+    height: 140px;
+    border-right: solid 3px transparent;
+    border-top :  solid 3px firebrick;
+    border-radius: 50%;
+    position: relative;
+    animation: spin 1s infinite linear;
+    transition:  ease .3s;
+    transition-delay: .2s;
+
+}
+.page__overlay-preloader::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-top: solid 3px transparent;
+    border-right :  solid 3px rebeccapurple;
+    border-radius: 50%;
+    animation: spin 0.5s infinite linear reverse;
+}
+.page__overlay-preloader::after{
+    content: '';
+    position: absolute;
+    top: 23px;
+    left: 23px;
+    right: 23px;
+    bottom: 23px;
+    border-right: solid 3px transparent;
+    border-top :  solid 3px chartreuse;
+    border-radius: 50%;
+    animation: spin 3s infinite linear;
+}
+.page_loaded .page__overlay{
+    transform: translateY(-100%);
+}
+.page_loaded .page__overlay-preloader,.page_loaded .page__overlay img{
+    opacity: 0;
+}
+@keyframes spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
 /* ----------- Header ---------*/
 .header{
     margin: 0 auto 40px;
@@ -136,6 +210,13 @@
     grid-template-columns: repeat(3, 1fr);
     column-gap: 18px;
     row-gap: 20px;
+    transform: translateY(100%);
+    transition: ease .6s;
+    transition-delay: .9s;
+}
+.page_loaded .elements{
+    transform: translateY(0%);
+    
 }
 .elements__element-place{
     width:100%;
@@ -158,9 +239,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition:  .2s ease-in-out;
+    transition:  .15s ease-out;
     position: absolute;
-    transform: scale(1.07);
+    transform: scale(1.005);
 }
 
 .element__image-button{
@@ -184,7 +265,7 @@
 }
 
 .elements__element:hover .element__image{
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .element__title-container{
@@ -195,14 +276,14 @@
 }
 
 .element__title{
-font-family: "Inter var";
-font-style: normal;
-font-weight: 900;
-font-size: 24px;
-line-height: 29px;
-text-overflow: ellipsis;
-white-space: nowrap;
-overflow: hidden;
+    font-family: "Inter var";
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .element__like{
@@ -561,6 +642,11 @@ overflow: hidden;
 
 @media screen and (min-width: 320px) and (max-width: 767px)
 {
+    .page__overlay img{
+        width:200px;
+        top:100px
+    }
+    
     .elements{
         width: 88%;
         grid-template-columns: repeat(1, 1fr );

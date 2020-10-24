@@ -9,9 +9,13 @@
     <link rel="icon" href="images/favicon.ico">
 </head>
 <body class="page">
+    <div class="page__overlay">
+        <img src="images/logo.svg" alt="" class="header__logo" draggable="false">
+        <div class="page__overlay-preloader"></div>
+    </div>
     <header class="header">
         <div class="header__container">
-            <img src="images/logo.svg" alt="" class="header__logo">
+            <img src="images/logo.svg" alt="" class="header__logo" draggable="false">
             <p class="header__clock">00:00:00</p>
         </div>
         <div class="header__line"></div>
@@ -20,7 +24,7 @@
     <section class="profile">
         <div class="profile__main">
             <button class="profile__image-container">
-                <img src="images/me.webp" alt="" class="profile__avatar asyncImage" data-src="images/full/me.webp">
+                <img src="images/me.webp" alt="" class="profile__avatar asyncImage" data-src="images/full/me.webp" draggable="false">
             </button>
             <div class="profile__info">
                 <div class="info__name-div">
